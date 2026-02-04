@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>AI Visual Archive | Gu Jong Hyun</title>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600;700&family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div id="cursor"></div>
+    <div id="cursor-dot"></div>
+
+    <div id="intro-overlay"><canvas id="intro-canvas"></canvas></div>
+    <canvas id="particle-canvas"></canvas>
+    
+    <div id="lightbox" onclick="closeLightbox()">
+        <div id="lightbox-ambience"></div>
+        <div id="lightbox-overlay"></div>
+        <div id="lightbox-container" onclick="event.stopPropagation()"></div>
+    </div>
+    
+    <div id="back-to-top" onclick="scrollToTop()">↑</div>
+
+    <div class="content-wrapper">
+        <nav id="home">
+            <a href="#" class="brand hover-target">
+                <div class="brand-rolling-container">
+                    <span class="brand-face face-front">GU JONG HYUN</span>
+                    <span class="brand-face face-back">ART IS INNOVATION</span>
+                </div>
+            </a>
+            <div class="nav-links">
+                <a href="#ehc" class="nav-link hover-target">E.H.C</a>
+                <a href="#cosmetics" class="nav-link hover-target">Cosmetics</a>
+                <a href="#motion" class="nav-link hover-target">Motion</a>
+                <a href="#contact" class="nav-link hover-target">Contact</a>
+            </div>
+        </nav>
+
+        <header class="hero reveal-element">
+            <h1>Defining Modernity<br>Through AI Aesthetics.</h1>
+            <p>데이터의 흐름을 정제하여 본질적인 아름다움을 시각화합니다.</p>
+        </header>
+        
+        <section id="ehc" class="section-container">
+            <div class="section-header reveal-element">01. Economic History Club</div>
+            <div class="work-item ratio-wide reveal-element stack-effect" onclick="openLightbox(this)" 
+                 data-title="MBN 경제사 모임 (Economic History Club)" 
+                 data-desc="MBN에서 방영된 인문 교양 프로그램 '경제사 모임'의 통합 비주얼 아이덴티티입니다. 역사 속 결정적 경제 사건들을 현대적인 그래픽 텍스처와 모션으로 재해석하여, 프로그램의 지적 깊이와 통찰을 시각화했습니다."
+                 data-gallery='[{"src":"slide/경제사모임1.png","type":"img"},{"src":"slide/경제사모임3.mp4","type":"video"},{"src":"slide/경제사모임2.png","type":"img"},{"src":"slide/경제사모임5.mp4","type":"video"}]'>
+                <div class="img-area">
+                    <img src="slide/경제사모임1.png" alt="MBN 경제사 모임 메인">
+                </div>
+                <div class="work-info">
+                    <div class="work-title">MBN Integrated Visual Identity</div>
+                    <div class="work-tag">Graphic & Motion / Auto Slide</div>
+                </div>
+            </div>
+        </section>
+
+        <section id="cosmetics" class="section-container">
+            <div class="section-header reveal-element">02. Cosmetics & Products</div>
+            <div class="grid-layout grid-3-col">
+                <div class="work-item ratio-portrait reveal-element" onclick="openLightbox(this)" data-title="Elemental Hydration" data-desc="물의 순수한 에너지를 3D 제너레이티브 아트로 표현했습니다."><div class="img-area"><img src="images/1.098Z.png"></div><div class="work-info"><div class="work-title">Elemental Hydration</div><div class="work-tag">3D Gen</div></div></div>
+                <div class="work-item ratio-portrait reveal-element" onclick="openLightbox(this)" data-title="Nocturnal Silk" data-desc="밤의 실크처럼 부드럽고 매혹적인 텍스처를 연구했습니다."><div class="img-area"><img src="images/2.532Z.png"></div><div class="work-info"><div class="work-title">Nocturnal Silk</div><div class="work-tag">Material</div></div></div>
+                <div class="work-item ratio-portrait reveal-element" onclick="openLightbox(this)" data-title="Core Serum" data-desc="피부 깊숙이 스며드는 영양감을 투명한 3D 렌더링으로 시각화했습니다."><div class="img-area"><img src="images/4.604Z.png"></div><div class="work-info"><div class="work-title">Core Serum</div><div class="work-tag">Product</div></div></div>
+                <div class="work-item ratio-portrait reveal-element" onclick="openLightbox(this)" data-title="Dermal Harmony" data-desc="자연과 과학의 조화를 표현한 네이처 컨셉 아트입니다."><div class="img-area"><img src="images/5.227Z.png"></div><div class="work-info"><div class="work-title">Dermal Harmony</div><div class="work-tag">Nature</div></div></div>
+                <div class="work-item ratio-portrait reveal-element" onclick="openLightbox(this)" data-title="Silent Care" data-desc="고요하고 정적인 케어의 순간을 담은 라이프스타일 이미지입니다."><div class="img-area"><img src="images/6.678Z.png"></div><div class="work-info"><div class="work-title">Silent Care</div><div class="work-tag">Lifestyle</div></div></div>
+                <div class="work-item ratio-portrait reveal-element" onclick="openLightbox(this)" data-title="Crisp Splash" data-desc="상쾌하게 터지는 수분감을 유체 시뮬레이션으로 구현했습니다."><div class="img-area"><img src="images/8.416Z.png"></div><div class="work-info"><div class="work-title">Crisp Splash</div><div class="work-tag">Fluid</div></div></div>
+            </div>
+        </section>
+        
+        <section id="motion" class="section-container">
+            <div class="section-header reveal-element">03. Future Motion</div>
+            <div class="motion-marquee-container reveal-element">
+                <div class="motion-track">
+                    <div class="work-item ratio-vertical" onclick="openLightbox(this)" data-title="Infinite Loop 01" data-desc="반복되는 패턴 속의 미학을 탐구한 루핑 애니메이션입니다."><div class="img-area"><video src="animation/animation1.mp4" muted loop autoplay playsinline></video></div><div class="work-info"><div class="work-title">Loop 01</div></div></div>
+                    <div class="work-item ratio-vertical" onclick="openLightbox(this)" data-title="Abstract Morphing 02" data-desc="형태가 끊임없이 변화하며 만들어내는 초현실적인 움직임입니다."><div class="img-area"><video src="animation/animation2.mp4" muted loop autoplay playsinline></video></div><div class="work-info"><div class="work-title">Loop 02</div></div></div>
+                    <div class="work-item ratio-vertical" onclick="openLightbox(this)" data-title="Light & Shadow 03" data-desc="빛과 그림자가 교차로 만들어지는 입체적인 리듬을 표현했습니다."><div class="img-area"><video src="animation/animation3.mp4" muted loop autoplay playsinline></video></div><div class="work-info"><div class="work-title">Loop 03</div></div></div>
+                    <div class="work-item ratio-vertical" onclick="openLightbox(this)" data-title="Cybernetic Flow 04" data-desc="미래지향적인 기술과 예술의 경계를 허무는 사이버네틱 무드입니다."><div class="img-area"><video src="animation/animation4.mp4" muted loop autoplay playsinline></video></div><div class="work-info"><div class="work-title">Loop 04</div></div></div>
+                    <div class="work-item ratio-vertical" onclick="openLightbox(this)" data-title="Reptilian Texture 05" data-desc="섬세한 파충류 비늘의 디테일과 살아있는 눈빛을 담았습니다."><div class="img-area"><video src="animation/animation5.mp4" muted loop autoplay playsinline></video></div><div class="work-info"><div class="work-title">Loop 05</div></div></div>
+                    <div class="work-item ratio-vertical" onclick="openLightbox(this)" data-title="Primal Instinct 06" data-desc="원시 숲 속 포식자의 강렬한 시선을 포착했습니다."><div class="img-area"><video src="animation/animation6.mp4" muted loop autoplay playsinline></video></div><div class="work-info"><div class="work-title">Loop 06</div></div></div>
+                    <div class="work-item ratio-vertical" onclick="openLightbox(this)" data-title="Ancient Observer 07" data-desc="고대 자연 속에서 마주한 낯선 존재의 숨결입니다."><div class="img-area"><video src="animation/animation7.mp4" muted loop autoplay playsinline></video></div><div class="work-info"><div class="work-title">Loop 07</div></div></div>
+
+                    <div class="work-item ratio-vertical" onclick="openLightbox(this)" data-title="Infinite Loop 01" data-desc="반복되는 패턴 속의 미학을 탐구한 루핑 애니메이션입니다."><div class="img-area"><video src="animation/animation1.mp4" muted loop autoplay playsinline></video></div><div class="work-info"><div class="work-title">Loop 01</div></div></div>
+                    <div class="work-item ratio-vertical" onclick="openLightbox(this)" data-title="Abstract Morphing 02" data-desc="형태가 끊임없이 변화하며 만들어내는 초현실적인 움직임입니다."><div class="img-area"><video src="animation/animation2.mp4" muted loop autoplay playsinline></video></div><div class="work-info"><div class="work-title">Loop 02</div></div></div>
+                    <div class="work-item ratio-vertical" onclick="openLightbox(this)" data-title="Light & Shadow 03" data-desc="빛과 그림자가 교차로 만들어지는 입체적인 리듬을 표현했습니다."><div class="img-area"><video src="animation/animation3.mp4" muted loop autoplay playsinline></video></div><div class="work-info"><div class="work-title">Loop 03</div></div></div>
+                    <div class="work-item ratio-vertical" onclick="openLightbox(this)" data-title="Cybernetic Flow 04" data-desc="미래지향적인 기술과 예술의 경계를 허무는 사이버네틱 무드입니다."><div class="img-area"><video src="animation/animation4.mp4" muted loop autoplay playsinline></video></div><div class="work-info"><div class="work-title">Loop 04</div></div></div>
+                    <div class="work-item ratio-vertical" onclick="openLightbox(this)" data-title="Reptilian Texture 05" data-desc="섬세한 파충류 비늘의 디테일과 살아있는 눈빛을 담았습니다."><div class="img-area"><video src="animation/animation5.mp4" muted loop autoplay playsinline></video></div><div class="work-info"><div class="work-title">Loop 05</div></div></div>
+                    <div class="work-item ratio-vertical" onclick="openLightbox(this)" data-title="Primal Instinct 06" data-desc="원시 숲 속 포식자의 강렬한 시선을 포착했습니다."><div class="img-area"><video src="animation/animation6.mp4" muted loop autoplay playsinline></video></div><div class="work-info"><div class="work-title">Loop 06</div></div></div>
+                    <div class="work-item ratio-vertical" onclick="openLightbox(this)" data-title="Ancient Observer 07" data-desc="고대 자연 속에서 마주한 낯선 존재의 숨결입니다."><div class="img-area"><video src="animation/animation7.mp4" muted loop autoplay playsinline></video></div><div class="work-info"><div class="work-title">Loop 07</div></div></div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="contact-section-wrapper reveal-element">
+            <div class="contact-letterbox">
+                <div class="contact-inner">
+                    <div class="contact-label"><strong>Contact</strong></div>
+                    <div class="contact-details">
+                        <p class="contact-msg"><strong>Let's Create Something Extraordinary.</strong></p>
+                        <a href="mailto:hello@gujonghyun.com" class="contact-mail hover-target">
+                            <strong>hello@gujonghyun.com</strong>
+                        </a>
+                        <div class="social-links-compact">
+                            <a href="#" class="hover-target"><strong>Instagram</strong></a>
+                            <span class="separator">/</span>
+                            <a href="#" class="hover-target"><strong>LinkedIn</strong></a>
+                            <span class="separator">/</span>
+                            <a href="#" class="hover-target"><strong>Kmong</strong></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <footer>
+            <div style="margin-bottom: 10px;">GU JONG HYUN</div>
+            © 2026. All Rights Reserved.
+        </footer>
+    </div>
+
+    <script>
+        const cursor = document.getElementById('cursor');
+        const cursorDot = document.getElementById('cursor-dot');
+        const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+
+        function initCursorHover() {
+            if (isTouchDevice) return;
+            document.querySelectorAll('.hover-target, .work-item, #back-to-top, .carousel-btn, .contact-mail, .social-links-compact a').forEach(el => {
+                el.removeEventListener('mouseenter', onHover);
+                el.removeEventListener('mouseleave', onLeave);
+                el.addEventListener('mouseenter', onHover);
+                el.addEventListener('mouseleave', onLeave);
+            });
+        }
+        function onHover() { document.body.classList.add('hovered'); }
+        function onLeave() { document.body.classList.remove('hovered'); }
+
+        if (!isTouchDevice) {
+            let cursorX = 0, cursorY = 0;
+            let dotX = 0, dotY = 0;
+            document.addEventListener('mousemove', (e) => {
+                cursorX = e.clientX; cursorY = e.clientY;
+                dotX = e.clientX; dotY = e.clientY;
+                cursorDot.style.left = dotX + 'px'; cursorDot.style.top = dotY + 'px';
+            });
+            function animateCursor() {
+                const dx = cursorX - parseFloat(cursor.style.left || 0);
+                const dy = cursorY - parseFloat(cursor.style.top || 0);
+                if(!cursor.style.left) { cursor.style.left = cursorX + 'px'; cursor.style.top = cursorY + 'px'; }
+                cursor.style.left = (parseFloat(cursor.style.left) + dx * 0.15) + 'px';
+                cursor.style.top = (parseFloat(cursor.style.top) + dy * 0.15) + 'px';
+                requestAnimationFrame(animateCursor);
+            }
+            animateCursor();
+            initCursorHover();
+        }
+
+        const revealElements = document.querySelectorAll('.reveal-element');
+        const revealObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('active'); });
+        }, { threshold: 0.05 }); 
+        revealElements.forEach(el => revealObserver.observe(el));
+
+        const backToTopBtn = document.getElementById('back-to-top');
+        window.addEventListener('scroll', () => window.scrollY > 300 ? backToTopBtn.classList.add('visible') : backToTopBtn.classList.remove('visible'));
+        function scrollToTop() { window.scrollTo({ top: 0, behavior: 'smooth' }); }
+
+        if (!isTouchDevice) {
+            document.querySelectorAll('.work-item').forEach(item => {
+                const imgArea = item.querySelector('.img-area');
+                item.addEventListener('mousemove', (e) => {
+                    const rect = item.getBoundingClientRect();
+                    const x = (e.clientX - rect.left) - rect.width / 2;
+                    const y = (e.clientY - rect.top) - rect.height / 2;
+                    const rotateY = x / 40; 
+                    const rotateX = -y / 40;
+                    imgArea.style.setProperty('--rotateX', `${rotateX}deg`);
+                    imgArea.style.setProperty('--rotateY', `${rotateY}deg`);
+                });
+                item.addEventListener('mouseleave', () => {
+                    imgArea.style.setProperty('--rotateX', `0deg`);
+                    imgArea.style.setProperty('--rotateY', `0deg`);
+                });
+            });
+        }
+
+        const introCanvas = document.getElementById('intro-canvas');
+        const introCtx = introCanvas.getContext('2d');
+        const bgCanvas = document.getElementById('particle-canvas');
+        const bgCtx = bgCanvas.getContext('2d');
+        
+        let introWidth, introHeight, particles = [], visibleCount = 0, phase = 'appearing', holdStartTime;
+        let bgWidth, bgHeight, dots = [], waveTime = 0;
+
+        function initAll() {
+            introWidth = window.innerWidth; introHeight = window.innerHeight;
+            introCanvas.width = introWidth; introCanvas.height = introHeight;
+            const fontSize = introWidth < 768 ? Math.floor(introWidth * 0.13) : 80; 
+            introCtx.fillStyle = "#000"; introCtx.fillRect(0,0,introWidth,introHeight);
+            introCtx.font = `bold ${fontSize}px Manrope`; introCtx.fillStyle = "#fff";
+            introCtx.textAlign = "center"; introCtx.textBaseline = "middle";
+            introCtx.fillText("GU JONG HYUN", introWidth/2, introHeight/2);
+            const data = introCtx.getImageData(0,0,introWidth,introHeight).data;
+            introCtx.clearRect(0,0,introWidth,introHeight);
+            particles = [];
+            const step = introWidth < 768 ? 4 : 2; 
+            for(let y=0; y<introHeight; y+=step) {
+                for(let x=0; x<introWidth; x+=step) {
+                    if(data[(y*introWidth+x)*4] > 128) {
+                        particles.push({ x, y, vx: (Math.random()-0.5)*0.3, vy: (Math.random()-0.5)*0.3, life: 1, size: Math.random() * (introWidth < 768 ? 2 : 1.5) + 0.5, rgb: {r:255, g:255, b:255} });
+                    }
+                }
+            }
+            for(let i=particles.length-1; i>0; i--) { const j=Math.floor(Math.random()*(i+1)); [particles[i],particles[j]] = [particles[j],particles[i]]; }
+            animateIntro();
+
+            bgWidth = window.innerWidth; bgHeight = window.innerHeight;
+            bgCanvas.width = bgWidth; bgCanvas.height = bgHeight;
+            dots = [];
+            const isMobile = bgWidth < 768;
+            const rows = isMobile ? 60 : 100; const cols = isMobile ? 40 : 80; const spacing = isMobile ? 60 : 70; 
+            for (let x = 0; x < cols; x++) {
+                for (let z = 0; z < rows; z++) {
+                    dots.push({ x: (x - cols / 2) * spacing, z: (z - rows / 2) * spacing - 2000, y: 0, baseSize: Math.random() * 2 + 1 });
+                }
+            }
+            animateInfiniteWave();
+        }
+
+        function animateIntro() {
+            if(phase === 'done') return;
+            introCtx.clearRect(0,0,introWidth,introHeight);
+            if(phase === 'appearing') {
+                visibleCount += 100;
+                if(visibleCount >= particles.length) { visibleCount = particles.length; phase = 'hold'; holdStartTime = Date.now(); }
+                for(let i=0; i<visibleCount; i++) {
+                    const p = particles[i];
+                    introCtx.fillStyle = `rgba(${p.rgb.r},${p.rgb.g},${p.rgb.b},1)`;
+                    introCtx.fillRect(p.x, p.y, p.size, p.size);
+                }
+            } else if(phase === 'hold') {
+                for(let i=0; i<particles.length; i++) {
+                    const p = particles[i];
+                    introCtx.fillStyle = `rgba(${p.rgb.r},${p.rgb.g},${p.rgb.b},1)`;
+                    introCtx.fillRect(p.x, p.y, p.size, p.size);
+                }
+                if(Date.now() - holdStartTime > 1000) phase = 'dissipate';
+            } else if(phase === 'dissipate') {
+                let active = 0;
+                for(let i=0; i<particles.length; i++) {
+                    const p = particles[i];
+                    p.x += p.vx; p.y += p.vy; p.life -= 0.015;
+                    if(p.life > 0) {
+                        introCtx.fillStyle = `rgba(${p.rgb.r},${p.rgb.g},${p.rgb.b},${p.life})`;
+                        introCtx.fillRect(p.x, p.y, p.size, p.size);
+                        active++;
+                    }
+                }
+                if(active === 0) {
+                    phase = 'done';
+                    document.getElementById('intro-overlay').style.opacity = 0;
+                    document.getElementById('intro-overlay').style.visibility = 'hidden';
+                    document.body.classList.add('loaded');
+                    return;
+                }
+            }
+            requestAnimationFrame(animateIntro);
+        }
+
+        function animateInfiniteWave() {
+            const gradient = bgCtx.createRadialGradient(bgWidth / 2, bgHeight / 2, 0, bgWidth / 2, bgHeight / 2, bgWidth);
+            gradient.addColorStop(0, 'rgba(5, 5, 5, 0.1)'); gradient.addColorStop(1, 'rgba(5, 5, 5, 1)'); 
+            bgCtx.fillStyle = gradient; bgCtx.fillRect(0, 0, bgWidth, bgHeight);
+            const targetRotX = 0.2; 
+            dots.forEach(dot => {
+                dot.z += 2; if (dot.z > 500) dot.z -= 7000;
+                const dist = Math.sqrt(dot.x*dot.x + dot.z*dot.z);
+                dot.y = Math.sin(dist * 0.0015 + waveTime) * 80 + Math.cos(dot.x * 0.002 + waveTime * 0.5) * 40;
+                let px = dot.x, py = dot.y + 150, pz = dot.z;
+                let tempY = py * Math.cos(targetRotX) - pz * Math.sin(targetRotX);
+                let tempZ = py * Math.sin(targetRotX) + pz * Math.cos(targetRotX);
+                py = tempY; pz = tempZ;
+                const fov = 700, scale = fov / (fov + pz + 1000), screenX = bgWidth / 2 + px * scale, screenY = bgHeight / 2 + py * scale;
+                if (scale > 0) {
+                    bgCtx.beginPath();
+                    const waveFactor = (dot.y + 120) / 120, finalSize = Math.max(0.1, scale * dot.baseSize * waveFactor * 1.5); 
+                    let alpha = Math.min(0.8, Math.max(0, (scale - 0.05) * 1.5));
+                    if(pz > 2000) alpha *= 0.5;
+                    bgCtx.fillStyle = `rgba(255, 255, 255, ${alpha})`;
+                    bgCtx.arc(screenX, screenY, finalSize, 0, Math.PI * 2); bgCtx.fill();
+                }
+            });
+            waveTime += 0.01; requestAnimationFrame(animateInfiniteWave);
+        }
+
+        window.onload = initAll;
+        window.addEventListener('resize', () => { bgWidth = window.innerWidth; bgHeight = window.innerHeight; bgCanvas.width = bgWidth; bgCanvas.height = bgHeight; });
+
+        const lb = document.getElementById('lightbox');
+        const lbAmbience = document.getElementById('lightbox-ambience');
+        const lbContainer = document.getElementById('lightbox-container');
+        let currentCarouselIndex = 0, carouselItemsCount = 0, autoSlideInterval = null;
+
+        function syncSlideTextWidth() {
+            const track = document.getElementById('carousel-track');
+            let activeMedia = null;
+            if (track) {
+                const activeItem = track.children[currentCarouselIndex];
+                if (activeItem) activeMedia = activeItem.querySelector('img, video');
+            } else {
+                activeMedia = lbContainer.querySelector('#lightbox-media');
+            }
+            const txtBox = lbContainer.querySelector('.lightbox-text');
+            if (activeMedia && txtBox) {
+                const width = activeMedia.getBoundingClientRect().width;
+                if(width > 0) {
+                    txtBox.style.width = width + 'px';
+                    txtBox.style.maxWidth = 'none'; 
+                }
+            }
+        }
+
+        window.addEventListener('resize', syncSlideTextWidth);
+
+        function openLightbox(el) {
+            let mediaSrc = "";
+            const imgEl = el.querySelector('img');
+            const vidEl = el.querySelector('video');
+            if (imgEl) mediaSrc = imgEl.src;
+            else if (vidEl) mediaSrc = vidEl.src;
+
+            const title = el.getAttribute('data-title') || "";
+            const desc = el.getAttribute('data-desc') || "";
+            const galleryData = el.getAttribute('data-gallery');
+
+            const textHTML = `
+                <div class="lightbox-text">
+                    <h3>${title}</h3>
+                    <p>${desc}</p>
+                </div>
+            `;
+
+            if (galleryData) {
+                try {
+                    const galleryItems = JSON.parse(galleryData);
+                    carouselItemsCount = galleryItems.length;
+                    currentCarouselIndex = 0;
+
+                    let carouselHTML = `
+                        <div class="lightbox-carousel">
+                            <button class="carousel-btn carousel-prev" onclick="moveCarousel(-1); event.stopPropagation();">‹</button>
+                            <div class="carousel-track-container">
+                                <div class="carousel-track" id="carousel-track">
+                    `;
+
+                    galleryItems.forEach(item => {
+                        carouselHTML += `<div class="carousel-item">`;
+                        if (item.type === 'img') {
+                            carouselHTML += `<img src="${item.src}" onload="syncSlideTextWidth()">`;
+                        } else if (item.type === 'video') {
+                            carouselHTML += `<video src="${item.src}" playsinline muted loop onloadedmetadata="syncSlideTextWidth()"></video>`;
+                        }
+                        carouselHTML += `</div>`;
+                    });
+
+                    carouselHTML += `
+                                </div>
+                            </div>
+                            <button class="carousel-btn carousel-next" onclick="moveCarousel(1); event.stopPropagation();">›</button>
+                        </div>
+                        ${textHTML}
+                    `;
+                    
+                    lbContainer.innerHTML = carouselHTML;
+                    updateAmbience(galleryItems[0]);
+                    initCursorHover();
+                    startAutoSlide();
+
+                } catch (e) {
+                    console.error("Gallery Error", e);
+                    renderSingleMedia(mediaSrc, imgEl ? 'img' : 'video', textHTML);
+                }
+            } else {
+                renderSingleMedia(mediaSrc, imgEl ? 'img' : 'video', textHTML);
+            }
+            
+            lb.classList.add('active');
+            
+            setTimeout(syncSlideTextWidth, 50);
+            setTimeout(syncSlideTextWidth, 300);
+        }
+
+        function renderSingleMedia(src, type, textHTML) {
+            if (!src) return;
+            let mediaHTML = "";
+            if (type === 'img') {
+                mediaHTML = `<img src="${src}" id="lightbox-media" onload="syncSlideTextWidth()">`;
+                lbAmbience.innerHTML = `<img src="${src}">`;
+            } else {
+                mediaHTML = `<video src="${src}" id="lightbox-media" controls autoplay loop playsinline onloadedmetadata="syncSlideTextWidth()"></video>`;
+                lbAmbience.innerHTML = `<video src="${src}" autoplay loop muted playsinline></video>`;
+            }
+            lbContainer.innerHTML = mediaHTML + textHTML;
+        }
+
+        function startAutoSlide() {
+            stopAutoSlide();
+            autoSlideInterval = setInterval(() => {
+                moveCarousel(1, true);
+            }, 5000); 
+        }
+
+        function stopAutoSlide() {
+            if (autoSlideInterval) {
+                clearInterval(autoSlideInterval);
+                autoSlideInterval = null;
+            }
+        }
+
+        function moveCarousel(direction, isAuto = false) {
+            const track = document.getElementById('carousel-track');
+            if (!track) return;
+
+            if (!isAuto) {
+                stopAutoSlide();
+                startAutoSlide();
+            }
+
+            const currentItem = track.children[currentCarouselIndex];
+            const prevVideo = currentItem.querySelector('video');
+            if (prevVideo) prevVideo.pause();
+
+            currentCarouselIndex = (currentCarouselIndex + direction + carouselItemsCount) % carouselItemsCount;
+            
+            const itemWidth = track.children[0].offsetWidth;
+            track.style.transform = `translateX(${-currentCarouselIndex * itemWidth}px)`;
+            
+            const newItem = track.children[currentCarouselIndex];
+            const newVideo = newItem.querySelector('video');
+            const newImg = newItem.querySelector('img');
+
+            if (newVideo) {
+                newVideo.currentTime = 0;
+                newVideo.play().catch(e => console.log("Autoplay prevented"));
+                lbAmbience.innerHTML = `<video src="${newVideo.src}" autoplay loop muted playsinline></video>`;
+                newVideo.onloadedmetadata = syncSlideTextWidth;
+            } else if (newImg) {
+                lbAmbience.innerHTML = `<img src="${newImg.src}">`;
+                newImg.onload = syncSlideTextWidth;
+            }
+            
+            setTimeout(syncSlideTextWidth, 300); 
+        }
+
+        function updateAmbience(item) {
+            if (item.type === 'img') {
+                lbAmbience.innerHTML = `<img src="${item.src}">`;
+            } else {
+                lbAmbience.innerHTML = `<video src="${item.src}" autoplay loop muted playsinline></video>`;
+            }
+        }
+        
+        function closeLightbox() { 
+            lb.classList.remove('active'); 
+            stopAutoSlide(); 
+            setTimeout(()=> {
+                lbContainer.innerHTML=""; 
+                lbAmbience.innerHTML="";
+            }, 500); 
+        }
+    </script>
+</body>
+</html>
